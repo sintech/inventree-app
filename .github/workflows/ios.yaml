@@ -4,8 +4,8 @@ name: iOS
 
 on:
   push:
-    branches:
-      - master
+#    branches:
+#      - master
   
 jobs:
 
@@ -39,3 +39,8 @@ jobs:
         cd ..
         cp lib/dummy_dsn.dart lib/dsn.dart
         flutter build ios --release --no-codesign --no-tree-shake-icons
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        path: /Users/runner/work/inventree-app/inventree-app/build/ios/iphoneos
